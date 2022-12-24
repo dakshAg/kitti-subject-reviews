@@ -12,12 +12,12 @@ export class ReviewRow extends React.Component {
         return (
             <div className={styles.box}>
                 <div className={styles.horizontal}>
-                    <h3>{this.review.subject_name}</h3>
+                    <h3 className={styles.subject_name}>{this.review.subject_name}</h3>
                     <h4 className={styles.subject_code}>{this.review.subject_code}</h4>
                     <p className={styles.sem}>{this.review.semester}, {this.review.year}</p>
                 </div>
-                <p>{this.review.core} for {this.review.major}</p>
-                <p>Lecturer(s): {this.review.lecturers}</p>
+                <p className={styles.basics}>{this.review.core} for {this.review.major}</p>
+                <p className={styles.basics}>Lecturer(s): {this.review.lecturers}</p>
                 <div className={styles.horizontal}>
                     <div className={styles.cozyBox}>
                         <h5>{this.review.difficulty}/10</h5>
@@ -32,7 +32,7 @@ export class ReviewRow extends React.Component {
                         <p>Teaching Quality</p>
                     </div>
                 </div>
-                {this.review.review}
+                <p className={styles.basics}>{this.review.review}</p>
             </div>
         );
     }

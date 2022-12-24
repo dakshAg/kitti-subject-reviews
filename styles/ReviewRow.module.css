@@ -1,15 +1,26 @@
-.box{
+.box {
     background-color: #2C3E50;
     font-family: Arial, sans-serif;
     color: #FBFCFC;
     padding: 12px;
     border-radius: 6px;
+    margin-bottom: 20px;
 }
-.horizontal{
+
+.horizontal {
     display: flex;
     align-items: flex-end;
 }
-.subject_code{
+@media only screen and (max-width: 320px) {
+    .horizontal {
+        flex-wrap: wrap;
+    }
+    .subject_name {
+        font-size: 16px;
+    }
+}
+
+.subject_code {
     font-family: 'Courier New', monospace;
     padding: 2px;
     color: #FBFCFC;
@@ -17,10 +28,21 @@
     background-color: #5D6D7E;
     margin-left: 4px;
 }
-.sem{
+.sem {
     margin-left: 4px;
 }
-.cozyBox{
+@media only screen and (max-width: 320px) {
+    .subject_code {
+        font-size: 14px;
+    }
+    .sem{
+        font-size: 14px;
+    }
+    .basics{
+        font-size: 14px;
+    }
+}
+.cozyBox {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,6 +53,15 @@
     border-radius: 3px;
     padding: 4px;
 }
-.cozyBox h5{
+
+.cozyBox h5 {
     font-size: 20px;
+}
+@media only screen and (max-width: 320px) {
+    .cozyBox h5 {
+    font-size: 16px;
+}
+.cozyBox p {
+    font-size: 12px;
+}
 }

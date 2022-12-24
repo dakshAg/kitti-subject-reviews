@@ -1,0 +1,39 @@
+.main {
+    padding-left: 6vw;
+    padding-right: 6vw;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.form {
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media only screen and (max-width: 320px) {
+    .form {
+        width: unset;
+    }
+}
+
+.horizontal_split {
+    display: flex;
+    gap: 20px;
+}
+
+@media only screen and (max-width: 320px) {
+    .horizontal_split {
+        flex-direction: column;
+    }
+}
+
+.horizontal_split div {
+    flex: 40%;
+}
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+}
