@@ -29,10 +29,11 @@ class ReviewForm extends React.Component {
     }
 
     handleSubmit(event: any) {
-        this.state.posted_on =new Date().toLocaleString("en-US", {timeZone: "Australia/Melbourne"})
-        push(ref(database, 'reviews/'), this.state);
-        alert('A name was submitted: ' + JSON.stringify(this.state));
-        event.preventDefault();
+        this.setState({ posted_on: new Date().toLocaleString("en-US", { timeZone: "Australia/Melbourne" }) }, () => {
+            push(ref(database, 'reviews/'), this.state);
+            alert('A name was submitted: ' + JSON.stringify(this.state));
+            event.preventDefault();
+        })
     }
 
     render() {

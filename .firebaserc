@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "kitti-subject-reviews-6e32a",
+    "new": "kitti-subject-reviews-6e32a"
+  },
+  "targets": {},
+  "etags": {}
+}
