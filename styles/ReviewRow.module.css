@@ -11,7 +11,7 @@
     display: flex;
     align-items: flex-end;
 }
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 480px) {
     .horizontal {
         flex-wrap: wrap;
     }
@@ -31,7 +31,7 @@
 .sem {
     margin-left: 4px;
 }
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 480px) {
     .subject_code {
         font-size: 14px;
     }
@@ -57,7 +57,7 @@
 .cozyBox h5 {
     font-size: 20px;
 }
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 480px) {
     .cozyBox h5 {
     font-size: 16px;
 }

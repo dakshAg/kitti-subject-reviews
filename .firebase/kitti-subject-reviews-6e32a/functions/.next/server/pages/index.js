@@ -22,8 +22,10 @@ module.exports = {
 module.exports = {
 	"box": "ReviewRow_box__nLGS7",
 	"horizontal": "ReviewRow_horizontal__NQDD0",
+	"subject_name": "ReviewRow_subject_name__q8zCl",
 	"subject_code": "ReviewRow_subject_code___9NLb",
 	"sem": "ReviewRow_sem__oU6y7",
+	"basics": "ReviewRow_basics__apULU",
 	"cozyBox": "ReviewRow_cozyBox__rMHw3"
 };
 
@@ -59,6 +61,7 @@ class ReviewRow extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component)
                     className: (_styles_ReviewRow_module_css__WEBPACK_IMPORTED_MODULE_2___default().horizontal),
                     children: [
                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h3", {
+                            className: (_styles_ReviewRow_module_css__WEBPACK_IMPORTED_MODULE_2___default().subject_name),
                             children: this.review.subject_name
                         }),
                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h4", {
@@ -76,6 +79,7 @@ class ReviewRow extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component)
                     ]
                 }),
                 /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
+                    className: (_styles_ReviewRow_module_css__WEBPACK_IMPORTED_MODULE_2___default().basics),
                     children: [
                         this.review.core,
                         " for ",
@@ -83,6 +87,7 @@ class ReviewRow extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component)
                     ]
                 }),
                 /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
+                    className: (_styles_ReviewRow_module_css__WEBPACK_IMPORTED_MODULE_2___default().basics),
                     children: [
                         "Lecturer(s): ",
                         this.review.lecturers
@@ -135,70 +140,14 @@ class ReviewRow extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component)
                         })
                     ]
                 }),
-                this.review.review
+                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
+                    className: (_styles_ReviewRow_module_css__WEBPACK_IMPORTED_MODULE_2___default().basics),
+                    children: this.review.review
+                })
             ]
         });
     }
 }
-
-
-/***/ }),
-
-/***/ 315:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "T": () => (/* binding */ TitleBar)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6689);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5692);
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_mui_material__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1664);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_3__);
-
-
-
-
-class TitleBar extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component) {
-    render() {
-        return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_3___default()), {
-                href: "/add-review",
-                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_2__.Button, {
-                    variant: "contained",
-                    children: "Add Review"
-                })
-            })
-        });
-    }
-}
-
-
-/***/ }),
-
-/***/ 8699:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "q": () => (/* binding */ firebaseConfig)
-/* harmony export */ });
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-// No Keys are leaked here. They can stay public. Refer to https://firebase.google.com/docs/projects/api-keys
-const firebaseConfig = {
-    apiKey: "AIzaSyCYotF18l6qxM1_ARBmzZv_TiqQLLtXetY",
-    authDomain: "kitti-subject-reviews-6e32a.firebaseapp.com",
-    databaseURL: "https://kitti-subject-reviews-6e32a-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "kitti-subject-reviews-6e32a",
-    storageBucket: "kitti-subject-reviews-6e32a.appspot.com",
-    messagingSenderId: "678817029481",
-    appId: "1:678817029481:web:e8adf738cc5a5a3bcd31f8"
-};
 
 
 /***/ }),
@@ -257,10 +206,10 @@ function Home({ reviews  }) {
                     })
                 ]
             }),
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_TitleBar__WEBPACK_IMPORTED_MODULE_6__/* .TitleBar */ .T, {}),
             /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("main", {
                 className: (_styles_Home_module_css__WEBPACK_IMPORTED_MODULE_7___default().main),
                 children: [
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_TitleBar__WEBPACK_IMPORTED_MODULE_6__/* .TitleBar */ .T, {}),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
                         children: reviews.review
                     }),
@@ -558,7 +507,7 @@ module.exports = import("firebase/database");;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [210,676,664], () => (__webpack_exec__(8618)));
+var __webpack_exports__ = __webpack_require__.X(0, [210,676,664,883], () => (__webpack_exec__(8618)));
 module.exports = __webpack_exports__;
 
 })();

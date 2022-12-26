@@ -1,20 +1,25 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import styles from '../styles/AddReview.module.css'
-import React from 'react';
+import React, { useState } from 'react';
 import { TextField, FormLabel, RadioGroup, FormControlLabel, Radio, Slider, Select, MenuItem, Button } from '@mui/material';
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, push } from "firebase/database";
 import { firebaseConfig } from '../constants/firebase-config';
-import { getAuth } from "firebase/auth";
+import { getAuth, onAuthStateChanged, signInAnonymously, User } from "firebase/auth";
 import { TitleBar } from '../components/TitleBar';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
+import Typography from '@mui/material/Typography';
+import Image from 'next/image'
 
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth(app);
+
 
 class ReviewForm extends React.Component {
     constructor(props: any) {
@@ -137,7 +142,7 @@ class ReviewForm extends React.Component {
 
 
                     <TextField id="input-review" multiline
-          rows={4} label="Review" variant="outlined" name="review" onChange={this.handleChange} />
+                        rows={4} label="Review" variant="outlined" name="review" onChange={this.handleChange} />
 
 
                     <Button variant="contained" type="submit">Submit</Button>
@@ -152,13 +157,69 @@ class ReviewForm extends React.Component {
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+    const [user, setUser] = useState<User | undefined>();
+
+    onAuthStateChanged(auth, (u) => {
+        if (u) {
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/firebase.User
+            const uid = u.uid;
+            setUser(u)
+            console.log(u)
+            // ...
+        } else {
+            setUser(undefined)
+        }
+    });
+
+    function signIn() {
+        signInAnonymously(auth)
+            .then(() => {
+
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ...
+            });
+    }
     return (
         <>
             <Head>
-
+                <title>Post a Subject Review on Kitti Subject Reviews | University of Melbourne</title>
+                <meta name="description" content="Help your peers by sharing your experiences with Subjects at The University of Melbourne Australia. Help people make intelligent choices." />
+                <meta name="keywords" content="Post Subject Reviews, Ratings, University of Melbourne, Unimelb" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <link rel="icon" href="/favicon.ico" />
             </Head>
             <TitleBar></TitleBar>
             <main className={styles.main}>
+                {
+                    user == undefined &&
+                    <Card className={styles.card}>
+                        <div>
+                            <CardContent>
+
+                                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                                    Hold Up!
+                                </Typography>
+                                <Typography variant="h5" component="div" sx={{ fontSize: 16 }}>
+                                    You need to Sign In to Post a Review
+                                </Typography>
+
+
+                            </CardContent>
+                            <CardActions>
+                                <Button onClick={signIn} size="small">Sign In Anonymously</Button>
+                            </CardActions>
+                        </div>
+
+                        <Image src="/images/cat-hello.png" alt="Cat says Hello" width="100" height="100" />
+
+                    </Card>
+                }
+
+
                 <ReviewForm>
 
                 </ReviewForm>

@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/u6KXs8y14dNDDHd_T7U-r/_buildManifest.js",
-    "static/u6KXs8y14dNDDHd_T7U-r/_ssgManifest.js"
+    "static/im8LxSPTXudXkLMw3TUha/_buildManifest.js",
+    "static/im8LxSPTXudXkLMw3TUha/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
@@ -16,8 +16,9 @@
       "static/chunks/main-66ca454f7bdf962f.js",
       "static/chunks/a198fdd9-9efa88aa8521e1ae.js",
       "static/chunks/675-b8385eb8adc752ab.js",
-      "static/css/c275bff0f802c248.css",
-      "static/chunks/pages/index-361412590554093d.js"
+      "static/chunks/104-ded0ff76581fc28b.js",
+      "static/css/6274d15c09b47b38.css",
+      "static/chunks/pages/index-6ef4cfebaca64d2c.js"
     ],
     "/_app": [
       "static/chunks/webpack-87b3a303122f2f0d.js",
@@ -39,9 +40,10 @@
       "static/chunks/a198fdd9-9efa88aa8521e1ae.js",
       "static/chunks/c75d5872-20b6ae0a75afb078.js",
       "static/chunks/675-b8385eb8adc752ab.js",
-      "static/chunks/494-84247c440afe1c83.js",
-      "static/css/aee3907ca51ca5b5.css",
-      "static/chunks/pages/add-review-c485df4d51dfe92d.js"
+      "static/chunks/104-ded0ff76581fc28b.js",
+      "static/chunks/181-4a07cb7f743e61f8.js",
+      "static/css/fecb8d1e45982451.css",
+      "static/chunks/pages/add-review-997a5a80d71c7feb.js"
     ],
     "/sign-in": [
       "static/chunks/webpack-87b3a303122f2f0d.js",
