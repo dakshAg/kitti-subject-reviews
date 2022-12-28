@@ -1,11 +1,11 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
-import { getDatabase, ref, onValue,get,child } from "firebase/database";
+import { getDatabase, ref, onValue, get, child } from "firebase/database";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from '../constants/firebase-config';
 import { ReviewRow } from '../components/ReviewRow';
-import { TitleBar } from '../components/TitleBar';
+import TitleBar from '../components/TitleBar'
 
 const inter = Inter({ subsets: ['latin'] })
 export default function Home({ reviews }) {
@@ -20,7 +20,7 @@ export default function Home({ reviews }) {
       </Head>
       <TitleBar />
       <main className={styles.main}>
-        
+
         <p>{reviews.review}</p>
         {
           reviews.map((review) =>
@@ -39,7 +39,7 @@ export async function getServerSideProps() {
   const reviews = await get(child(dbRef, `reviews`)).then((snapshot) => {
     var r = []
     if (snapshot.exists()) {
-      snapshot.forEach((childSnapshot)=>{
+      snapshot.forEach((childSnapshot) => {
         console.log(childSnapshot);
         r.push(childSnapshot.val())
       })
@@ -52,8 +52,8 @@ export async function getServerSideProps() {
     console.error(error);
   });
 
-  console.log("Reviews",reviews)
-  
+  console.log("Reviews", reviews)
+
   return {
     props: {
       reviews,
