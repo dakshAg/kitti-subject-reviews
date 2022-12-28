@@ -152,6 +152,29 @@ class ReviewRow extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component)
 
 /***/ }),
 
+/***/ 8699:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "q": () => (/* binding */ firebaseConfig)
+/* harmony export */ });
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// No Keys are leaked here. They can stay public. Refer to https://firebase.google.com/docs/projects/api-keys
+const firebaseConfig = {
+    apiKey: "AIzaSyCYotF18l6qxM1_ARBmzZv_TiqQLLtXetY",
+    authDomain: "kitti-subject-reviews-6e32a.firebaseapp.com",
+    databaseURL: "https://kitti-subject-reviews-6e32a-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "kitti-subject-reviews-6e32a",
+    storageBucket: "kitti-subject-reviews-6e32a.appspot.com",
+    messagingSenderId: "678817029481",
+    appId: "1:678817029481:web:e8adf738cc5a5a3bcd31f8"
+};
+
+
+/***/ }),
+
 /***/ 8618:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -172,9 +195,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3745);
 /* harmony import */ var _constants_firebase_config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8699);
 /* harmony import */ var _components_ReviewRow__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(6729);
-/* harmony import */ var _components_TitleBar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(315);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([firebase_database__WEBPACK_IMPORTED_MODULE_2__, firebase_app__WEBPACK_IMPORTED_MODULE_3__, _components_TitleBar__WEBPACK_IMPORTED_MODULE_6__]);
-([firebase_database__WEBPACK_IMPORTED_MODULE_2__, firebase_app__WEBPACK_IMPORTED_MODULE_3__, _components_TitleBar__WEBPACK_IMPORTED_MODULE_6__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+/* harmony import */ var _components_TitleBar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(8562);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([firebase_database__WEBPACK_IMPORTED_MODULE_2__, firebase_app__WEBPACK_IMPORTED_MODULE_3__]);
+([firebase_database__WEBPACK_IMPORTED_MODULE_2__, firebase_app__WEBPACK_IMPORTED_MODULE_3__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 
 
 
@@ -210,7 +233,7 @@ function Home({ reviews  }) {
                     })
                 ]
             }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_TitleBar__WEBPACK_IMPORTED_MODULE_6__/* .TitleBar */ .T, {}),
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_TitleBar__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z, {}),
             /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("main", {
                 className: (_styles_Home_module_css__WEBPACK_IMPORTED_MODULE_7___default().main),
                 children: [
@@ -256,11 +279,123 @@ __webpack_async_result__();
 
 /***/ }),
 
-/***/ 5692:
+/***/ 5848:
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("@mui/material");
+module.exports = require("@mui/icons-material/Adb");
+
+/***/ }),
+
+/***/ 3365:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("@mui/icons-material/Menu");
+
+/***/ }),
+
+/***/ 3882:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("@mui/material/AppBar");
+
+/***/ }),
+
+/***/ 2120:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("@mui/material/Avatar");
+
+/***/ }),
+
+/***/ 19:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("@mui/material/Box");
+
+/***/ }),
+
+/***/ 3819:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("@mui/material/Button");
+
+/***/ }),
+
+/***/ 4475:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("@mui/material/Container");
+
+/***/ }),
+
+/***/ 7934:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("@mui/material/IconButton");
+
+/***/ }),
+
+/***/ 8125:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("@mui/material/Menu");
+
+/***/ }),
+
+/***/ 9271:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("@mui/material/MenuItem");
+
+/***/ }),
+
+/***/ 1431:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("@mui/material/Toolbar");
+
+/***/ }),
+
+/***/ 7229:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("@mui/material/Tooltip");
+
+/***/ }),
+
+/***/ 7163:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("@mui/material/Typography");
+
+/***/ }),
+
+/***/ 3918:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/amp-context.js");
+
+/***/ }),
+
+/***/ 5732:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/amp-mode.js");
 
 /***/ }),
 
@@ -285,6 +420,38 @@ module.exports = require("next/dist/shared/lib/head-manager-context.js");
 
 "use strict";
 module.exports = require("next/dist/shared/lib/i18n/normalize-locale-path.js");
+
+/***/ }),
+
+/***/ 4486:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/image-blur-svg.js");
+
+/***/ }),
+
+/***/ 744:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/image-config-context.js");
+
+/***/ }),
+
+/***/ 5843:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/image-config.js");
+
+/***/ }),
+
+/***/ 9552:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/image-loader");
 
 /***/ }),
 
@@ -448,11 +615,27 @@ module.exports = require("next/dist/shared/lib/router/utils/route-regex.js");
 
 /***/ }),
 
+/***/ 2470:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/side-effect.js");
+
+/***/ }),
+
 /***/ 9232:
 /***/ ((module) => {
 
 "use strict";
 module.exports = require("next/dist/shared/lib/utils.js");
+
+/***/ }),
+
+/***/ 618:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/utils/warn-once.js");
 
 /***/ }),
 
@@ -496,14 +679,6 @@ module.exports = import("firebase/app");;
 
 /***/ }),
 
-/***/ 401:
-/***/ ((module) => {
-
-"use strict";
-module.exports = import("firebase/auth");;
-
-/***/ }),
-
 /***/ 1208:
 /***/ ((module) => {
 
@@ -519,7 +694,7 @@ module.exports = import("firebase/database");;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [210,676,664,315], () => (__webpack_exec__(8618)));
+var __webpack_exports__ = __webpack_require__.X(0, [121,676,61,562], () => (__webpack_exec__(8618)));
 module.exports = __webpack_exports__;
 
 })();

@@ -3,7 +3,7 @@
   "/_document": "pages/_document.js",
   "/add-review": "pages/add-review.html",
   "/_error": "pages/_error.js",
-  "/api/hello": "pages/api/hello.js",
-  "/": "pages/index.js",
-  "/404": "pages/404.html"
+  "/thank-you": "pages/thank-you.html",
+  "/404": "pages/404.html",
+  "/": "pages/index.js"
 }

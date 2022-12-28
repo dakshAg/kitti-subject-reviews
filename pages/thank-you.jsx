@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { TitleBar } from '../components/TitleBar';
+import TitleBar from '../components/TitleBar';
 import styles from '../styles/ThankYou.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
