@@ -12,7 +12,6 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Image from 'next/image'
-import AdbIcon from '@mui/icons-material/Adb';
 import Link from 'next/link';
 
 const pages = [{ name: 'Add Review', url: "/add-review" }, { name: 'Discord', url: 'https://discord.gg/QwXx63NQ2g' }, { name: 'GitHub', url: 'https://github.com/dakshAg/kitti-subject-reviews' }];
