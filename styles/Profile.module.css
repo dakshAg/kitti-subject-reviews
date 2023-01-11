@@ -1,0 +1,11 @@
+.main {
+    padding-left: 6vw;
+    padding-right: 6vw;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    
+}
+.horizontal{
+    display: flex;
+    gap:60px;
+}

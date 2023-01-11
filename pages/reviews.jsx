@@ -1,19 +1,23 @@
 import Head from 'next/head'
+import React, { useState } from 'react';
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import { getDatabase, ref, onValue, get, child } from "firebase/database";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from '../constants/firebase-config';
 import { ReviewRow } from '../components/ReviewRow';
+import { TextField, Autocomplete } from '@mui/material';
 import TitleBar from '../components/TitleBar'
 
 const inter = Inter({ subsets: ['latin'] })
 export default function Home({ reviews }) {
+
+ 
   return (
     <>
       <Head>
-        <title>Kitti Subject Reviews | University of Melbourne</title>
-        <meta name="description" content="Authentic Reviews for Subjects offered at UniMelb Australia so you can make an informed choice. Supported by CS@UniMelb, this is a student to student effort." />
+        <title>Read Subject Reviews for UniMelb | Kitti</title>
+        <meta name="description" content="Search and Read Subject Reviews from University of Melbourne Students, to get better at Course Planning." />
         <meta name="keywords" content="Subject Reviews, Ratings, University of Melbourne, Unimelb" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -21,7 +25,8 @@ export default function Home({ reviews }) {
       <TitleBar />
       <main className={styles.main}>
 
-        <p>{reviews.review}</p>
+        <h1>Browse UniMelb Subject Reviews</h1>
+       
         {
           reviews.map((review) =>
             <ReviewRow review={review} />

@@ -1,0 +1,8 @@
+.main{
+    display: flex;
+    padding-left: 6vw;
+  padding-right: 6vw;
+  background-color: #212F3D;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}

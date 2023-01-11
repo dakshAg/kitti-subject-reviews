@@ -2,8 +2,11 @@
   padding-left: 6vw;
   padding-right: 6vw;
   min-height: 100vh;
-  padding-top: 2em;
+  padding-top: 5em;
   padding-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  gap:50px;
 }
 
 .horizontal {
@@ -20,52 +23,86 @@
 .horizontal div {
   flex: 50%;
 }
-.geek{
+
+.geek {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
+
 }
-.buttons{
+
+.buttons {
   display: flex;
   gap: 20px;
   margin-top: 20px;
 }
-.image_container{
+
+.image_container {
   height: 400px;
   width: 400px;
 }
+
 @media only screen and (max-width: 480px) {
-.image{
-  position: relative;
-  height: 80vw;
-  width: 80vw;
+  .image {
+    position: relative;
+    height: 80vw;
+    width: 80vw;
+  }
 }
-}
-.center{
+
+.center {
   text-align: center;
 }
-.realms{
+
+.realms {
   display: flex;
   gap: 20px;
   margin-top: 50px;
 }
+
 @media only screen and (max-width: 480px) {
-  .realms{
+  .realms {
     flex-direction: column;
   }
 }
-.realm{
+
+.realm {
   flex: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
-.realm p{
+
+.realm p {
   font-size: 14px;
   color: #ECF0F1;
 }
-.link{
+
+.card {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: flex-end;
+}
+
+.support_realm {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  text-align: left;
+  
+  gap: 10px;
+}
+
+.support_realm button {
+  width: fit-content;
+}
+
+.support_realm p {
+  font-size: 13px;
+}
+
+
+.link {
   color: #3498DB;
 }

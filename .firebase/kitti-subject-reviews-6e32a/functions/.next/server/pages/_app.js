@@ -4,6 +4,18 @@ exports.id = 888;
 exports.ids = [888];
 exports.modules = {
 
+/***/ 671:
+/***/ ((module) => {
+
+// Exports
+module.exports = {
+	"style": {"fontFamily":"'__Roboto_19bf8f', '__Roboto_Fallback_19bf8f'","fontWeight":400,"fontStyle":"normal"},
+	"className": "__className_19bf8f"
+};
+
+
+/***/ }),
+
 /***/ 2500:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -18,6 +30,9 @@ __webpack_require__.d(__webpack_exports__, {
 
 // EXTERNAL MODULE: external "react/jsx-runtime"
 var jsx_runtime_ = __webpack_require__(997);
+// EXTERNAL MODULE: ./node_modules/@next/font/google/target.css?{"path":"pages/_app.tsx","import":"Roboto","arguments":[{"weight":"400","subsets":["latin"]}],"variableName":"roboto"}
+var _app_tsx_import_Roboto_arguments_weight_400_subsets_latin_variableName_roboto_ = __webpack_require__(671);
+var _app_tsx_import_Roboto_arguments_weight_400_subsets_latin_variableName_roboto_default = /*#__PURE__*/__webpack_require__.n(_app_tsx_import_Roboto_arguments_weight_400_subsets_latin_variableName_roboto_);
 // EXTERNAL MODULE: ./styles/globals.css
 var globals = __webpack_require__(6764);
 ;// CONCATENATED MODULE: external "@mui/material/styles"
@@ -26,6 +41,7 @@ const styles_namespaceObject = require("@mui/material/styles");
 const CssBaseline_namespaceObject = require("@mui/material/CssBaseline");
 var CssBaseline_default = /*#__PURE__*/__webpack_require__.n(CssBaseline_namespaceObject);
 ;// CONCATENATED MODULE: ./pages/_app.tsx
+
 
 
 
@@ -40,8 +56,11 @@ function App({ Component , pageProps  }) {
         theme: darkTheme,
         children: [
             /*#__PURE__*/ jsx_runtime_.jsx((CssBaseline_default()), {}),
-            /*#__PURE__*/ jsx_runtime_.jsx(Component, {
-                ...pageProps
+            /*#__PURE__*/ jsx_runtime_.jsx("main", {
+                className: (_app_tsx_import_Roboto_arguments_weight_400_subsets_latin_variableName_roboto_default()).className,
+                children: /*#__PURE__*/ jsx_runtime_.jsx(Component, {
+                    ...pageProps
+                })
             })
         ]
     });

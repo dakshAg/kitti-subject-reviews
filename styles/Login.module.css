@@ -1,0 +1,31 @@
+.main {
+    padding-left: 6vw;
+    padding-right: 6vw;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    
+}
+.card{
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    
+    align-items: center;
+}
+.card div{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    gap: 20px;
+}
+
+.horizontal {
+    display: flex;
+    gap: 20px;
+}
