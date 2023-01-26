@@ -1,5 +1,7 @@
 .card{
     padding: 4px;
     display:flex;
+    width: fit-content;
     gap: 10px;
+    align-items: center;
 }

@@ -6,6 +6,10 @@ import TitleBar from '../components/TitleBar';
 import { Footer } from '../components/Footer';
 import Head from 'next/head'
 
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from '../constants/firebase-config';
+import { getDatabase, ref, onValue, get, child } from "firebase/database";
+
 export default function Home() {
     return (
         <>
@@ -46,6 +50,23 @@ export default function Home() {
                 <div className={styles.center}>
                     <h2>Experience UniMelb with Confidence, we've got your back.</h2>
                     <p>By reading reviews and evaluations of different subjects, students can make more informed decisions about which courses to take and which majors to pursue. Get the most out of your education and ensure that you are learning from the best instructors.</p>
+                </div>
+                <div >
+                    <h2>How we're doing</h2>
+                    <div className={styles.realms}>
+                        <div>
+                            <h3></h3>
+                            <p>Reviews</p>
+                        </div>
+                        <div>
+                            <h3></h3>
+                            <p>Users</p>
+                        </div>
+                        <div>
+                            <h3></h3>
+                            <p>Subjects Reviewed</p>
+                        </div>
+                    </div>
                 </div>
                 <div className={styles.realms}>
                     <div className={styles.realm}>
@@ -148,7 +169,36 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </>
     )
 }
+
+export async function getServerSideProps() {
+    const app = initializeApp(firebaseConfig);
+  
+    const dbRef = ref(getDatabase());
+    const reviews = await get(child(dbRef, `reviews`)).then((snapshot) => {
+      var r = []
+      if (snapshot.exists()) {
+        snapshot.forEach((childSnapshot) => {
+          console.log(childSnapshot);
+          r.push(childSnapshot.val())
+        })
+        console.log(r);
+        return r;
+      } else {
+        console.log("No data available");
+      }
+    }).catch((error) => {
+      console.error(error);
+    });
+  
+    console.log("Reviews", reviews)
+  
+    return {
+      props: {
+        reviews,
+      },
+    }
+  }

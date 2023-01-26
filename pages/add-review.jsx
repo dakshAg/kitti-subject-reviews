@@ -39,7 +39,6 @@ function ReviewForm({ submitForm }) {
         <>
             <form onSubmit={handleSubmit} className={styles.form}>
                 <div className={styles.horizontal_split}>
-                    <TextField id="input-subject-name" name="subject_name" label="Subject Name" variant="outlined" onChange={handleChange} />
                     <TextField id="input-subject-code" name="subject_code" label="Subject Code" variant="outlined" onChange={handleChange} />
                 </div>
                 <div className={styles.horizontal_split}>
@@ -162,10 +161,18 @@ export default function Home() {
         }
     });
 
-    function submitForm(state) {
-        state.posted_on = new Date().toLocaleString("en-US", { timeZone: "Australia/Melbourne" })
-        state.uid = user.uid
-        push(ref(database, 'reviews/'), state);
+    async function submitForm(state) {
+        state.subject = {
+            connect: {
+                code: state.subject_code
+            }
+        }
+        delete state.subject_code;
+        await fetch('/api/post-review', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(state),
+        });
         Router.push('/thank-you')
     }
 

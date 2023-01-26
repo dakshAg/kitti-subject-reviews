@@ -2,17 +2,16 @@ import Head from 'next/head'
 import React, { useState } from 'react';
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
-import { getDatabase, ref, onValue, get, child } from "firebase/database";
-import { initializeApp } from "firebase/app";
-import { firebaseConfig } from '../constants/firebase-config';
 import { ReviewRow } from '../components/ReviewRow';
 import { TextField, Autocomplete } from '@mui/material';
 import TitleBar from '../components/TitleBar'
 
+import prisma from '/lib/prisma';
+
 const inter = Inter({ subsets: ['latin'] })
 export default function Home({ reviews }) {
 
- 
+
   return (
     <>
       <Head>
@@ -26,7 +25,7 @@ export default function Home({ reviews }) {
       <main className={styles.main}>
 
         <h1>Browse UniMelb Subject Reviews</h1>
-       
+
         {
           reviews.map((review) =>
             <ReviewRow review={review} />
@@ -38,30 +37,13 @@ export default function Home({ reviews }) {
 }
 
 export async function getServerSideProps() {
-  const app = initializeApp(firebaseConfig);
-
-  const dbRef = ref(getDatabase());
-  const reviews = await get(child(dbRef, `reviews`)).then((snapshot) => {
-    var r = []
-    if (snapshot.exists()) {
-      snapshot.forEach((childSnapshot) => {
-        console.log(childSnapshot);
-        r.push(childSnapshot.val())
-      })
-      console.log(r);
-      return r;
-    } else {
-      console.log("No data available");
-    }
-  }).catch((error) => {
-    console.error(error);
+  const reviews = await prisma.review.findMany({
+    where: { year: "2022" }
   });
-
-  console.log("Reviews", reviews)
 
   return {
     props: {
-      reviews,
+      reviews: JSON.parse(JSON.stringify(reviews)),
     },
   }
 }

@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Roboto } from '@next/font/google'
+import { SessionProvider } from "next-auth/react"
 
 const darkTheme = createTheme({
   palette: {
@@ -14,12 +15,14 @@ const roboto = Roboto({
   subsets: ['latin'],
 })
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return <ThemeProvider theme={darkTheme}>
     <CssBaseline />
-    <main className={roboto.className}>
-    <Component {...pageProps} />
-    </main>
-    
+    <SessionProvider session={session}>
+      <main className={roboto.className}>
+        <Component {...pageProps} />
+      </main>
+    </SessionProvider>
+
   </ThemeProvider>
 }

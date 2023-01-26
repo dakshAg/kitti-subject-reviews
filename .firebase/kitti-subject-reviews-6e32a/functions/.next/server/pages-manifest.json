@@ -1,10 +1,13 @@
 {
   "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/add-review": "pages/add-review.html",
   "/": "pages/index.html",
+  "/profile": "pages/profile.html",
+  "/log-in": "pages/log-in.html",
   "/404": "pages/404.html",
+  "/sign-up": "pages/sign-up.html",
   "/thank-you": "pages/thank-you.html",
+  "/_error": "pages/_error.js",
   "/reviews": "pages/reviews.js"
 }

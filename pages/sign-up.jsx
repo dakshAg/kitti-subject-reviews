@@ -7,15 +7,7 @@ import { TextField, Button, Tooltip, IconButton, OutlinedInput, InputAdornment, 
 import { Info, Visibility, VisibilityOff, Google, GitHub, Facebook } from '@mui/icons-material'
 import Image from 'next/image'
 import { generateName } from '../utils/username-generator'
-import { GoogleAuthProvider, getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { firebaseConfig } from '../constants/firebase-config';
-import { initializeApp } from "firebase/app";
-
-
-const app = initializeApp(firebaseConfig);
-const provider = new GoogleAuthProvider();
-const auth = getAuth(app);
-
+import { signIn } from "next-auth/react"
 
 function LoginForm({ submitForm }) {
     function handleSubmit(event) {
@@ -26,17 +18,7 @@ function LoginForm({ submitForm }) {
             em = `${username}@kitti-subject-reviews-6e32a.web.app`
         }
 
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Signed in 
-                const user = userCredential.user;
-                setSuccessSnackbarOpen(true)
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorMessage)
-            });
+        signIn("email", { em })
     }
 
     const [showPassword, setShowPassword] = React.useState(false);
