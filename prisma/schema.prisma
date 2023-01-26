@@ -1,0 +1,77 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int        @id @default(autoincrement())
+  email    String     @unique
+  name     String?
+  username String     @unique
+  reviews  Review[]
+  Response Response[]
+}
+
+model Review {
+  id               Int        @id @default(autoincrement())
+  core             String
+  difficulty       Int
+  interesting      Int
+  lecturers        String?
+  major            String
+  posted_on        DateTime   @default(now())
+  review           String
+  semester         String
+  subject_code     String
+  subject          Subject    @relation(fields: [subject_code], references: [code])
+  teaching_quality Int
+  year             String
+  recommended      String
+  author_id        Int?
+  author           User?      @relation(fields: [author_id], references: [id])
+  responses        Response[]
+  status           String     @default("LIVE")
+}
+
+model Subject {
+  code    String   @id
+  campus  String
+  name    String
+  sems    String[]
+  reviews Review[]
+}
+
+model Badge {
+  id            Int       @id @default(autoincrement())
+  user_id       Int
+  granted_on    DateTime  @default(now())
+  badge_type_id Int
+  badge_type    BadgeType @relation(fields: [badge_type_id], references: [id])
+}
+
+model BadgeType {
+  id     Int     @id @default(autoincrement())
+  name   String
+  image  String
+  rule   String
+  badges Badge[]
+}
+
+model Response {
+  id        Int      @id @default(autoincrement())
+  type      String
+  review_id Int
+  review    Review   @relation(fields: [review_id], references: [id])
+  content   String?
+  posted_on DateTime @default(now())
+  author_id Int?
+  author    User?    @relation(fields: [author_id], references: [id])
+}
