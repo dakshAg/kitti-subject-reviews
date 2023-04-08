@@ -174,31 +174,3 @@ export default function Home() {
     )
 }
 
-export async function getServerSideProps() {
-    const app = initializeApp(firebaseConfig);
-  
-    const dbRef = ref(getDatabase());
-    const reviews = await get(child(dbRef, `reviews`)).then((snapshot) => {
-      var r = []
-      if (snapshot.exists()) {
-        snapshot.forEach((childSnapshot) => {
-          console.log(childSnapshot);
-          r.push(childSnapshot.val())
-        })
-        console.log(r);
-        return r;
-      } else {
-        console.log("No data available");
-      }
-    }).catch((error) => {
-      console.error(error);
-    });
-  
-    console.log("Reviews", reviews)
-  
-    return {
-      props: {
-        reviews,
-      },
-    }
-  }

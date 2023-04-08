@@ -1,7 +1,9 @@
 import React from "react";
 import styles from '../styles/ReviewRow.module.css'
 import { TextField, IconButton } from '@mui/material';
-import { Send } from '@mui/icons-material'
+import { Send, FavoriteBorder } from '@mui/icons-material'
+import { Response } from "@prisma/client";
+import { CommentRow } from "./CommentRow";
 
 export function ReviewRow(props: any) {
     const [comment, setComment] = React.useState("");
@@ -9,6 +11,24 @@ export function ReviewRow(props: any) {
     function handleCommentSubmit(event: any) {
         event.preventDefault();
         submitForm();
+    }
+
+    async function like() {
+        const response = {
+            type: "Like",
+            review: {
+                connect: {
+                    id: props.review.id
+                }
+            },
+            content: "",
+        }
+        console.log(JSON.stringify(response));
+        await fetch('/api/post-response', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(response),
+        });
     }
 
     async function submitForm() {
@@ -52,12 +72,24 @@ export function ReviewRow(props: any) {
                 </div>
             </div>
             <p className={styles.basics}>{props.review.review}</p>
-            <form onSubmit={handleCommentSubmit}>
-                <TextField id="input-subject-code" name="comment" label="Write a Comment" variant="outlined" onChange={e => setComment(e.target.value)} />
-                <IconButton aria-label="delete" type="submit">
-                    <Send />
+            <div className={styles.horizontal}>
+                <IconButton aria-label="delete" type="submit" onClick={like}>
+                    <FavoriteBorder />
                 </IconButton>
-            </form>
+                <form onSubmit={handleCommentSubmit}>
+                    <TextField id="input-subject-code" name="comment" label="Write a Comment" variant="outlined" onChange={e => setComment(e.target.value)} />
+                    <IconButton aria-label="delete" type="submit">
+                        <Send />
+                    </IconButton>
+                </form>
+            </div>
+
+            {
+                props.review.responses.map((response: Response)=>
+                    <CommentRow comment={response} key={response.id}/>
+                )
+            }
+
 
         </div>
     )

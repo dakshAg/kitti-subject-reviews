@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import React from 'react';
 import styles from '../styles/Login.module.css'
-import { TextField, Button, Tooltip, IconButton, OutlinedInput, InputAdornment, FormControl, InputLabel, Card,Snackbar,Alert } from '@mui/material';
+import { TextField, Button, Tooltip, IconButton, OutlinedInput, InputAdornment, FormControl, InputLabel, Card, Snackbar, Alert } from '@mui/material';
 import { Info, Visibility, VisibilityOff, Google, GitHub, Facebook } from '@mui/icons-material'
 import Image from 'next/image'
 import { generateName } from '../utils/username-generator'
@@ -14,7 +14,7 @@ function LoginForm({ submitForm }) {
         event.preventDefault();
         var em = email
 
-        if(em ==""){
+        if (em == "") {
             em = `${username}@kitti-subject-reviews-6e32a.web.app`
         }
 
@@ -35,11 +35,11 @@ function LoginForm({ submitForm }) {
     const [successSnackbarOpen, setSuccessSnackbarOpen] = React.useState(false);
     const handleSuccessSnackbarClose = (event, reason) => {
         if (reason === 'clickaway') {
-          return;
+            return;
         }
-    
+
         setSuccessSnackbarOpen(false);
-      };
+    };
 
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
@@ -134,11 +134,12 @@ function LoginForm({ submitForm }) {
                     <Card className={styles.card}>
                         <div>
                             <h3>Feeling Lazy?</h3>
-                            <Button variant="outlined" onClick={autogenerateEverything}>Autogenerate Everything</Button>
-                            <h3>Even More Lazy?</h3>
                             <Button variant="contained" endIcon={<Google />} type="submit">Sign in with Google</Button>
                             <Button variant="contained" endIcon={<Facebook />} type="submit">Sign in with Facebook</Button>
                             <Button variant="contained" endIcon={<GitHub />} type="submit">Sign in with GitHub</Button>
+                            <h3>Even More Lazy?</h3>
+                            <Button variant="outlined" onClick={autogenerateEverything}>One Click Anonymous Sign In</Button>
+
                         </div>
                         <Image src="/images/lazy-cat.png" alt="Lazy Cat" width="100" height="100" />
                     </Card>

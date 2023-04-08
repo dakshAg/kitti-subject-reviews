@@ -15,6 +15,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const pages = [
+  { name: 'Reviews', url: '/reviews' },
   { name: 'Add Review', url: '/add-review' },
   { name: 'Discord', url: 'https://discord.gg/QwXx63NQ2g' },
   { name: 'GitHub', url: 'https://github.com/dakshAg/kitti-subject-reviews' },

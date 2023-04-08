@@ -2,11 +2,15 @@ import Head from 'next/head'
 import React, { useState } from 'react';
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
-import { ReviewRow } from '../components/ReviewRow';
-import { TextField, Autocomplete } from '@mui/material';
+import { ReviewRow } from '../components/HomeReviewRow';
+import { TextField, Autocomplete, Card, Avatar, Stack } from '@mui/material';
 import TitleBar from '../components/TitleBar'
 
 import prisma from '/lib/prisma';
+
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from '../constants/firebase-config';
+import { getDatabase, ref, onValue, get, child } from "firebase/database";
 
 const inter = Inter({ subsets: ['latin'] })
 export default function Home({ reviews }) {
@@ -24,6 +28,16 @@ export default function Home({ reviews }) {
       <TitleBar />
       <main className={styles.main}>
 
+        <Card >
+          <Stack direction="row">
+            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+            <Stack direction="column">
+              <h4>Alan Walker</h4>
+              <p>@alanwalker</p>
+            </Stack>
+          </Stack>
+        </Card>
+
         <h1>Browse UniMelb Subject Reviews</h1>
 
         {
@@ -38,7 +52,10 @@ export default function Home({ reviews }) {
 
 export async function getServerSideProps() {
   const reviews = await prisma.review.findMany({
-    where: { year: "2022" }
+    where: { year: "2022" },
+    include: {
+      responses: true,
+    }
   });
 
   return {
@@ -47,3 +64,31 @@ export async function getServerSideProps() {
     },
   }
 }
+/*export async function getServerSideProps() {
+  const app = initializeApp(firebaseConfig);
+
+  const dbRef = ref(getDatabase());
+  const reviews = await get(child(dbRef, `reviews`)).then((snapshot) => {
+    var r = []
+    if (snapshot.exists()) {
+      snapshot.forEach((childSnapshot) => {
+        console.log(childSnapshot);
+        r.push(childSnapshot.val())
+      })
+      console.log(r);
+      return r;
+    } else {
+      console.log("No data available");
+    }
+  }).catch((error) => {
+    console.error(error);
+  });
+
+  console.log("Reviews", reviews)
+
+  return {
+    props: {
+      reviews,
+    },
+  }
+}*/
